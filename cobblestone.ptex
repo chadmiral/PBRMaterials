@@ -67,12 +67,6 @@
 			"to_port": 1
 		},
 		{
-			"from": "uniform_2",
-			"from_port": 0,
-			"to": "blend_3",
-			"to_port": 0
-		},
-		{
 			"from": "blend_3",
 			"from_port": 0,
 			"to": "Material",
@@ -83,6 +77,18 @@
 			"from_port": 0,
 			"to": "tiler",
 			"to_port": 1
+		},
+		{
+			"from": "colorize",
+			"from_port": 0,
+			"to": "blend_3",
+			"to_port": 0
+		},
+		{
+			"from": "fbm_2",
+			"from_port": 0,
+			"to": "colorize",
+			"to_port": 0
 		}
 	],
 	"label": "Graph",
@@ -571,8 +577,8 @@
 		{
 			"name": "uniform",
 			"node_position": {
-				"x": 61.005753,
-				"y": -371.171722
+				"x": 70.005753,
+				"y": -230.171722
 			},
 			"parameters": {
 				"color": {
@@ -588,8 +594,8 @@
 		{
 			"name": "uniform_2",
 			"node_position": {
-				"x": 61.005795,
-				"y": -451.380127
+				"x": 146.005798,
+				"y": -576.380127
 			},
 			"parameters": {
 				"color": {
@@ -615,6 +621,52 @@
 				"persistence": 0.5,
 				"scale_x": 2,
 				"scale_y": 2
+			},
+			"type": "fbm"
+		},
+		{
+			"name": "colorize",
+			"node_position": {
+				"x": -74.380859,
+				"y": -427.568481
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0.748627,
+							"g": 0.818096,
+							"pos": 0,
+							"r": 0.867188
+						},
+						{
+							"a": 1,
+							"b": 0.265625,
+							"g": 0.234497,
+							"pos": 1,
+							"r": 0.242765
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"type": "colorize"
+		},
+		{
+			"name": "fbm_2",
+			"node_position": {
+				"x": -418.380859,
+				"y": -413.568481
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 5,
+				"noise": 6,
+				"persistence": 0.5,
+				"scale_x": 20,
+				"scale_y": 20
 			},
 			"type": "fbm"
 		}
