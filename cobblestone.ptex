@@ -1,12 +1,6 @@
 {
 	"connections": [
 		{
-			"from": "graph",
-			"from_port": 0,
-			"to": "tiler",
-			"to_port": 0
-		},
-		{
 			"from": "blend",
 			"from_port": 0,
 			"to": "normal_map",
@@ -43,24 +37,6 @@
 			"to_port": 0
 		},
 		{
-			"from": "tiler",
-			"from_port": 0,
-			"to": "blend",
-			"to_port": 1
-		},
-		{
-			"from": "tiler",
-			"from_port": 0,
-			"to": "tones",
-			"to_port": 0
-		},
-		{
-			"from": "fbm",
-			"from_port": 0,
-			"to": "tiler",
-			"to_port": 1
-		},
-		{
 			"from": "graph_2",
 			"from_port": 0,
 			"to": "blend_2",
@@ -85,10 +61,34 @@
 			"to_port": 5
 		},
 		{
-			"from": "graph_2",
+			"from": "occlusion",
+			"from_port": 0,
+			"to": "blend_2",
+			"to_port": 0
+		},
+		{
+			"from": "blend_2",
 			"from_port": 0,
 			"to": "Material",
 			"to_port": 0
+		},
+		{
+			"from": "graph",
+			"from_port": 0,
+			"to": "blend",
+			"to_port": 1
+		},
+		{
+			"from": "graph",
+			"from_port": 0,
+			"to": "tones",
+			"to_port": 0
+		},
+		{
+			"from": "graph",
+			"from_port": 1,
+			"to": "graph_2",
+			"to_port": 1
 		}
 	],
 	"label": "Graph",
@@ -129,32 +129,10 @@
 			"type": "material"
 		},
 		{
-			"name": "tiler",
-			"node_position": {
-				"x": -334.324921,
-				"y": 420.220581
-			},
-			"parameters": {
-				"fixed_offset": 0.28,
-				"offset": 0.12,
-				"overlap": 1,
-				"rotate": 10,
-				"scale": 0.11,
-				"scale_x": 0.12,
-				"scale_y": 0.12,
-				"select_inputs": 1,
-				"tx": 16,
-				"ty": 16,
-				"value": 0.15
-			},
-			"seed_value": -39894,
-			"type": "tiler"
-		},
-		{
 			"name": "normal_map",
 			"node_position": {
-				"x": 435.119354,
-				"y": 179.130081
+				"x": 643.88916,
+				"y": 476.440643
 			},
 			"parameters": {
 				"param0": 11,
@@ -167,8 +145,8 @@
 		{
 			"name": "invert",
 			"node_position": {
-				"x": 390.087433,
-				"y": 488.456116
+				"x": 289.430542,
+				"y": 735.438232
 			},
 			"parameters": {
 
@@ -178,8 +156,8 @@
 		{
 			"name": "fbm_5",
 			"node_position": {
-				"x": -328.066833,
-				"y": 241.429443
+				"x": -304.066833,
+				"y": 678.429443
 			},
 			"parameters": {
 				"folds": 0,
@@ -195,8 +173,8 @@
 		{
 			"name": "blend",
 			"node_position": {
-				"x": 11.182001,
-				"y": 366.184082
+				"x": 45.666294,
+				"y": 565.633789
 			},
 			"parameters": {
 				"amount": 0.04,
@@ -207,8 +185,8 @@
 		{
 			"name": "brightness_contrast",
 			"node_position": {
-				"x": 698.328247,
-				"y": 568.606567
+				"x": 636.815674,
+				"y": 713.06781
 			},
 			"parameters": {
 				"brightness": -0.86,
@@ -228,12 +206,6 @@
 					"from": "sdshow",
 					"from_port": 0,
 					"to": "warp",
-					"to_port": 0
-				},
-				{
-					"from": "tile2x2",
-					"from_port": 0,
-					"to": "gen_outputs",
 					"to_port": 0
 				},
 				{
@@ -301,14 +273,38 @@
 					"from_port": 0,
 					"to": "warp",
 					"to_port": 1
+				},
+				{
+					"from": "fbm",
+					"from_port": 0,
+					"to": "tiler",
+					"to_port": 1
+				},
+				{
+					"from": "tile2x2",
+					"from_port": 0,
+					"to": "tiler",
+					"to_port": 0
+				},
+				{
+					"from": "tiler",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 0
+				},
+				{
+					"from": "tiler",
+					"from_port": 1,
+					"to": "gen_outputs",
+					"to_port": 1
 				}
 			],
-			"label": "Brick Shapes",
+			"label": "Brick Tiler",
 			"longdesc": "4x4 brick shape instances",
 			"name": "graph",
 			"node_position": {
-				"x": -642.168945,
-				"y": 440.441254
+				"x": -630.615112,
+				"y": 359.564514
 			},
 			"nodes": [
 				{
@@ -352,7 +348,7 @@
 				{
 					"name": "warp",
 					"node_position": {
-						"x": -844.246826,
+						"x": -834.926697,
 						"y": 9.350947
 					},
 					"parameters": {
@@ -392,7 +388,7 @@
 					"name": "tile2x2",
 					"node_position": {
 						"x": -550.537109,
-						"y": 219.637329
+						"y": 220.407578
 					},
 					"parameters": {
 
@@ -416,8 +412,8 @@
 				{
 					"name": "gen_outputs",
 					"node_position": {
-						"x": -250.537109,
-						"y": 139.642395
+						"x": 346.462891,
+						"y": 127.642395
 					},
 					"parameters": {
 
@@ -425,8 +421,13 @@
 					"ports": [
 						{
 							"group_size": 0,
-							"name": "port0",
-							"type": "rgba"
+							"name": "Height",
+							"type": "f"
+						},
+						{
+							"group_size": 0,
+							"name": "Instance Map",
+							"type": "rgb"
 						}
 					],
 					"type": "ios"
@@ -434,8 +435,8 @@
 				{
 					"name": "gen_parameters",
 					"node_position": {
-						"x": -1263.112061,
-						"y": -574.343811
+						"x": -1181.112061,
+						"y": -499.343811
 					},
 					"parameters": {
 
@@ -496,7 +497,7 @@
 				{
 					"name": "fbm_4",
 					"node_position": {
-						"x": -1313.776489,
+						"x": -1316.57251,
 						"y": -2.378923
 					},
 					"parameters": {
@@ -508,6 +509,44 @@
 						"scale_y": 4
 					},
 					"type": "fbm"
+				},
+				{
+					"name": "fbm",
+					"node_position": {
+						"x": -224.932739,
+						"y": -144.029419
+					},
+					"parameters": {
+						"folds": 0,
+						"iterations": 5,
+						"noise": 0,
+						"persistence": 0.5,
+						"scale_x": 2,
+						"scale_y": 2
+					},
+					"type": "fbm"
+				},
+				{
+					"name": "tiler",
+					"node_position": {
+						"x": -211.526245,
+						"y": 57.366882
+					},
+					"parameters": {
+						"fixed_offset": 0.28,
+						"offset": 0.12,
+						"overlap": 1,
+						"rotate": 10,
+						"scale": 0.11,
+						"scale_x": 0.12,
+						"scale_y": 0.12,
+						"select_inputs": 1,
+						"tx": 15,
+						"ty": 16,
+						"value": 0.15
+					},
+					"seed_value": -39894,
+					"type": "tiler"
 				}
 			],
 			"parameters": {
@@ -520,8 +559,8 @@
 		{
 			"name": "tones",
 			"node_position": {
-				"x": 0.6211,
-				"y": 56.204834
+				"x": 36.037407,
+				"y": 336.739258
 			},
 			"parameters": {
 				"in_max": {
@@ -563,22 +602,6 @@
 			"type": "tones"
 		},
 		{
-			"name": "fbm",
-			"node_position": {
-				"x": -684.419739,
-				"y": 579.064819
-			},
-			"parameters": {
-				"folds": 0,
-				"iterations": 5,
-				"noise": 0,
-				"persistence": 0.5,
-				"scale_x": 2,
-				"scale_y": 2
-			},
-			"type": "fbm"
-		},
-		{
 			"connections": [
 				{
 					"from": "gen_inputs",
@@ -611,12 +634,6 @@
 					"to_port": 0
 				},
 				{
-					"from": "blend_2",
-					"from_port": 0,
-					"to": "gen_outputs",
-					"to_port": 0
-				},
-				{
 					"from": "noise",
 					"from_port": 0,
 					"to": "gaussian_blur",
@@ -639,14 +656,38 @@
 					"from_port": 0,
 					"to": "blend_3",
 					"to_port": 1
+				},
+				{
+					"from": "blend_2",
+					"from_port": 0,
+					"to": "blend_4",
+					"to_port": 1
+				},
+				{
+					"from": "blend_4",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 0
+				},
+				{
+					"from": "gen_inputs",
+					"from_port": 1,
+					"to": "colorize_4",
+					"to_port": 0
+				},
+				{
+					"from": "colorize_4",
+					"from_port": 0,
+					"to": "blend_4",
+					"to_port": 0
 				}
 			],
 			"label": "Albedo",
 			"longdesc": "",
 			"name": "graph_2",
 			"node_position": {
-				"x": 500.583008,
-				"y": 392.731079
+				"x": 438.138489,
+				"y": 11.5398
 			},
 			"nodes": [
 				{
@@ -727,8 +768,8 @@
 				{
 					"name": "gen_inputs",
 					"node_position": {
-						"x": 168.978012,
-						"y": -505.816406
+						"x": -312.431244,
+						"y": -167.674683
 					},
 					"parameters": {
 
@@ -738,6 +779,11 @@
 							"group_size": 0,
 							"name": "Grout Mask",
 							"type": "rgba"
+						},
+						{
+							"group_size": 0,
+							"name": "Instance Map",
+							"type": "rgb"
 						}
 					],
 					"type": "ios"
@@ -745,8 +791,8 @@
 				{
 					"name": "gen_outputs",
 					"node_position": {
-						"x": 678.337585,
-						"y": -618.108093
+						"x": 978.736816,
+						"y": -629.661865
 					},
 					"parameters": {
 
@@ -886,6 +932,62 @@
 						}
 					},
 					"type": "colorize"
+				},
+				{
+					"name": "blend_4",
+					"node_position": {
+						"x": 711.647156,
+						"y": -670.992432
+					},
+					"parameters": {
+						"amount": 0.37,
+						"blend_type": 0
+					},
+					"type": "blend"
+				},
+				{
+					"name": "colorize_4",
+					"node_position": {
+						"x": 373.491089,
+						"y": -219.967407
+					},
+					"parameters": {
+						"gradient": {
+							"interpolation": 0,
+							"points": [
+								{
+									"a": 1,
+									"b": 0.708801,
+									"g": 0.774912,
+									"pos": 0,
+									"r": 0.925781
+								},
+								{
+									"a": 1,
+									"b": 0.487061,
+									"g": 0.503883,
+									"pos": 0.378415,
+									"r": 0.546875
+								},
+								{
+									"a": 1,
+									"b": 0.617798,
+									"g": 0.65625,
+									"pos": 0.649502,
+									"r": 0.64153
+								},
+								{
+									"a": 1,
+									"b": 0.363281,
+									"g": 0.312727,
+									"pos": 1,
+									"r": 0.306519
+								}
+							],
+							"type": "Gradient"
+						}
+					},
+					"type": "colorize"
 				}
 			],
 			"parameters": {
@@ -898,11 +1000,11 @@
 		{
 			"name": "blend_2",
 			"node_position": {
-				"x": 786.126038,
-				"y": 36.089371
+				"x": 899.831055,
+				"y": 146.066315
 			},
 			"parameters": {
-				"amount": 0.63,
+				"amount": 1,
 				"blend_type": 2
 			},
 			"type": "blend"
@@ -910,12 +1012,12 @@
 		{
 			"name": "occlusion",
 			"node_position": {
-				"x": 337.830139,
-				"y": 605.546265
+				"x": 631.412659,
+				"y": 616.730347
 			},
 			"parameters": {
-				"param0": 8,
-				"param2": 1.5
+				"param0": 9,
+				"param2": 1.4
 			},
 			"type": "occlusion"
 		}
