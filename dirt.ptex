@@ -534,10 +534,10 @@
 						},
 						{
 							"a": 1,
-							"b": 0.440292,
-							"g": 0.493497,
+							"b": 0.347214,
+							"g": 0.381569,
 							"pos": 1,
-							"r": 0.566406
+							"r": 0.480469
 						}
 					],
 					"type": "Gradient"
@@ -619,12 +619,6 @@
 		},
 		{
 			"connections": [
-				{
-					"from": "splatter",
-					"from_port": 0,
-					"to": "tones_step",
-					"to_port": 0
-				},
 				{
 					"from": "tones_step",
 					"from_port": 0,
@@ -711,12 +705,6 @@
 				},
 				{
 					"from": "splatter",
-					"from_port": 0,
-					"to": "gen_outputs",
-					"to_port": 0
-				},
-				{
-					"from": "splatter",
 					"from_port": 1,
 					"to": "brightness_contrast",
 					"to_port": 0
@@ -738,6 +726,18 @@
 					"from_port": 0,
 					"to": "splatter",
 					"to_port": 1
+				},
+				{
+					"from": "math_2",
+					"from_port": 0,
+					"to": "tones_step",
+					"to_port": 0
+				},
+				{
+					"from": "math_2",
+					"from_port": 0,
+					"to": "gen_outputs",
+					"to_port": 0
 				}
 			],
 			"label": "Rocks",
@@ -804,8 +804,8 @@
 						"count": 420,
 						"rotate": 180,
 						"scale": 0.75,
-						"scale_x": 0.01,
-						"scale_y": 0.01,
+						"scale_x": 0.015,
+						"scale_y": 0.015,
 						"select_inputs": 0,
 						"value": 0.21
 					},
@@ -829,8 +829,8 @@
 				{
 					"name": "gen_outputs",
 					"node_position": {
-						"x": 1289.502563,
-						"y": -358.95816
+						"x": 1529.028687,
+						"y": -360.822174
 					},
 					"parameters": {
 
@@ -876,12 +876,12 @@
 				{
 					"name": "tones_step",
 					"node_position": {
-						"x": 824.013733,
-						"y": -356.89859
+						"x": 1194.44458,
+						"y": -370.624542
 					},
 					"parameters": {
 						"invert": false,
-						"value": 0.01,
+						"value": 0.18,
 						"width": 0
 					},
 					"type": "tones_step"
@@ -969,8 +969,8 @@
 				{
 					"name": "tones_map",
 					"node_position": {
-						"x": 944.979858,
-						"y": 6.564869
+						"x": 982.260193,
+						"y": 20.968634
 					},
 					"parameters": {
 						"in_max": 1,
@@ -1017,19 +1017,19 @@
 					},
 					"parameters": {
 						"folds": 0,
-						"iterations": 5,
-						"noise": 7,
+						"iterations": 1,
+						"noise": 0,
 						"persistence": 0.5,
-						"scale_x": 7,
-						"scale_y": 7
+						"scale_x": 2,
+						"scale_y": 2
 					},
 					"type": "fbm"
 				},
 				{
 					"name": "math_2",
 					"node_position": {
-						"x": 1037.318481,
-						"y": -569.681824
+						"x": 960.893799,
+						"y": -606.030151
 					},
 					"parameters": {
 						"clamp": false,
@@ -1049,8 +1049,8 @@
 					},
 					"name": "comment",
 					"node_position": {
-						"x": 877.31842,
-						"y": -802.409119
+						"x": 993.819397,
+						"y": -898.405945
 					},
 					"parameters": {
 
@@ -1108,6 +1108,7 @@
 			"parameters": {
 
 			},
+			"preview": 3,
 			"seed_value": -34677,
 			"shortdesc": "",
 			"type": "graph"
@@ -1173,22 +1174,6 @@
 			"type": "invert"
 		},
 		{
-			"name": "fbm_2",
-			"node_position": {
-				"x": 1002.511963,
-				"y": -876.619263
-			},
-			"parameters": {
-				"folds": 0,
-				"iterations": 3,
-				"noise": 2,
-				"persistence": 0.5,
-				"scale_x": 2,
-				"scale_y": 2
-			},
-			"type": "fbm"
-		},
-		{
 			"name": "tones_step",
 			"node_position": {
 				"x": 855.314758,
@@ -1196,7 +1181,7 @@
 			},
 			"parameters": {
 				"invert": false,
-				"value": 0.74,
+				"value": 0.6,
 				"width": 0.88
 			},
 			"type": "tones_step"
