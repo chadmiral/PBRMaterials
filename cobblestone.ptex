@@ -197,12 +197,6 @@
 		{
 			"connections": [
 				{
-					"from": "sdbox",
-					"from_port": 0,
-					"to": "sdshow",
-					"to_port": 0
-				},
-				{
 					"from": "sdshow",
 					"from_port": 0,
 					"to": "warp",
@@ -297,6 +291,18 @@
 					"from_port": 1,
 					"to": "gen_outputs",
 					"to_port": 1
+				},
+				{
+					"from": "tile2x2",
+					"from_port": 0,
+					"to": "circle_splatter",
+					"to_port": 0
+				},
+				{
+					"from": "sdpolygon",
+					"from_port": 0,
+					"to": "sdshow",
+					"to_port": 0
 				}
 			],
 			"label": "Brick Tiler",
@@ -310,8 +316,8 @@
 				{
 					"name": "sdbox",
 					"node_position": {
-						"x": -1369.564453,
-						"y": -274.343811
+						"x": -1420.804199,
+						"y": -353.682648
 					},
 					"parameters": {
 						"cx": 0,
@@ -547,6 +553,59 @@
 					},
 					"seed_value": -39894,
 					"type": "tiler"
+				},
+				{
+					"name": "circle_splatter",
+					"node_position": {
+						"x": -215.786102,
+						"y": 396.039154
+					},
+					"parameters": {
+						"count": 12,
+						"i_rotate": 1,
+						"i_scale": 0,
+						"radius": 0.4,
+						"rings": 1,
+						"rotate": 0,
+						"scale": 0,
+						"scale_x": 0.45,
+						"scale_y": 0.45,
+						"select_inputs": 1,
+						"spiral": 0,
+						"value": 0
+					},
+					"type": "circle_splatter"
+				},
+				{
+					"name": "sdpolygon",
+					"node_position": {
+						"x": -1410.721558,
+						"y": -193.738342
+					},
+					"parameters": {
+						"polygon": {
+							"points": [
+								{
+									"x": 0.260623,
+									"y": 0.168083
+								},
+								{
+									"x": 0.343532,
+									"y": 0.724079
+								},
+								{
+									"x": 0.778659,
+									"y": 0.723607
+								},
+								{
+									"x": 0.887913,
+									"y": 0.163928
+								}
+							],
+							"type": "Polygon"
+						}
+					},
+					"type": "sdpolygon"
 				}
 			],
 			"parameters": {
